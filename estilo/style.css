@@ -28,32 +28,12 @@ html, body{
     background-color: darkgray;
     font-family: var(--fonte1);
 }
-
 header{
     background-color: black;
     color: white;
     text-align: center;
 }
 
-nav{
-    background-color: black;
-    padding: 10px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.263);
-}
-
-nav > a{
-    text-decoration: none;
-    color: white;
-    padding: 10px;
-    font-weight: bolder;
-    transition-duration: .3s;
-}
-
-nav > a:hover{
-    border-radius: 5px;
-    background-color: wheat;
-    color: black;
-}
 
 header > h1{
     padding-top:50px;
@@ -80,6 +60,63 @@ header a:hover, footer a:hover{
     color: black;
     border-radius: 5px;
 }
+/*burguer menu ↓*/
+a{
+    text-decoration: none;
+    color: white;
+    transition: .3s;
+}
+a:hover{
+    background-color: darkolivegreen;
+    border-radius: .3rem;
+}
+#logo{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+#header{
+    display: flex;
+    background-color: black;
+    box-sizing: border-box;
+    height: 4.35rem;
+    padding: 1rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#menu{
+    display: flex;
+    list-style-type: none;
+    gap: .5rem;
+    font-weight: bold;
+}
+
+#menu a{
+    padding: .5rem;
+    display: block;
+}
+#btn-mobile{
+    display: none;
+}
+/* nav{
+    background-color: black;
+    padding: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.263);
+}
+
+nav > a{
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    font-weight: bolder;
+    transition-duration: .3s;
+}
+
+nav > a:hover{
+    border-radius: 5px;
+    background-color: wheat;
+    color: black;
+} */
 
 section{
     padding-top: 10vh;
@@ -127,4 +164,57 @@ footer{
     color: white;
     text-align: center;
     padding: 10px;
+}
+
+@media (max-width: 600px){
+    #menu{
+        display: block;
+        position: absolute;
+        width: 100%;
+        top: 69px;
+        right: 0px;
+        background: #e7e7e7;
+        height: 0;
+        transition: .6s;
+        z-index: 100;
+        visibility: hidden;
+        overflow-y: hidden;
+    }
+    #nav.active #menu{
+        visibility: visible;
+        overflow-y: auto ;
+        height: calc(100vh - 70px);
+    }
+    #menu a{
+        padding: 1rem 0;
+        margin: 0 1rem;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.247);
+    }
+    #btn-mobile{
+        color: white;
+        display: flex;
+        padding: .5rem 1rem;
+        border: none;
+        background: none;
+        cursor: pointer;
+        gap: .5rem;
+    }
+    #burguer{
+        margin-left: 5px;
+        border-top: 2px solid;
+        width: 20px;
+        display: block;
+    }
+    #burguer::after, #burguer::before{
+        content: '';
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: currentColor;
+        margin-top: 5px;
+        transition: .3s;
+        position: relative;
+    }
+    
+
 }
